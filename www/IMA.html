@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>IMA: An R package for high-throughput analysis of Illumina’s 450K Infinium methylation data</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2011-08-18 Thu"/>
+<meta name="author" content="Dan Wang ; Song Liu  "/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+
+<h1 class="title">IMA: An R package for high-throughput analysis of Illumina’s 450K Infinium methylation data</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Abstract </a></li>
+<li><a href="#sec-2">2 Installation </a></li>
+<li><a href="#sec-3">3 Tutorial </a></li>
+<li><a href="#sec-4">4 Pipeline </a></li>
+<li><a href="#sec-5">5 Project summary </a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Abstract </h2>
+<div class="outline-text-2" id="text-1">
+
+<p>The recently released Infinium HumanMethylation450 BeadChip provides an unprecedented opportunity to quantify the methylation level of over 450,000 CpG sites within human genome. IMA (Illumina Methylation Analyzer) is a package designed to automate the pipeline for analyzing site-level and region-level methylation changes in epigenetic studies utilizing the 450K DNA methylation microarray. The pipeline loads the data from Illumina platform and provides user-customized functions commonly required to perform differential methylation analysis for individual sites as well as annotated regions. We showed that region-level analysis might complement site-level analysis in differential methylation inference.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Installation </h2>
+<div class="outline-text-2" id="text-2">
+
+<p>install.packages("IMA", repos="<a href="http://R-Forge.R-project.org">http://R-Forge.R-project.org</a>")
+</p>
+<p>
+**Prerequisites: 
+</p>
+<p>
+The IMA package requires the following packages to be installed: WriteXLS,GSA,limma,dplR,MASS,bioDist,heatmap.2.
+If your system does not have them installed, the easiest way to install them is to issue the following command at the R prompt:
+</p>
+<p>
+install.packages(c("WriteXLS","GSA","limma","dplR","MASS","bioDist","heatmap.2"))
+</p></div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Tutorial </h2>
+<div class="outline-text-2" id="text-3">
+
+<p>A vignentte that illustrate various aspects of IMA is available and it can be found <a href="./meth450.pdf">here</a>
+</p></div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Pipeline </h2>
+<div class="outline-text-2" id="text-4">
+
+<p>It will automatically produce the unsuperwised cluster tree, test results in excel file and saved the result into Rdata for further explor.
+The <a href="./pipeline.R">pipeline</a> file can be used to run with default setting or specify options in it.
+</p>
+<p>
+To run the pipeline file, just simply type "R no save &lt;pipeline.R" under Linux/Unix. Alternatively, paste the commandes in the pipeline.R into R.
+</p>
+
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Project summary </h2>
+<div class="outline-text-2" id="text-5">
+
+<p>The project summary page you can find <a href="http://r-forge.r-project.org/projects/IMA/">here</a>.
+</p></div>
+</div>
+<div id="postamble">
+<p class="author"> Author: Dan Wang ; Song Liu  
+<a href="mailto:dan.wang@roswellpark.org ; song.liu@roswellpark.org">&lt;dan.wang@roswellpark.org ; song.liu@roswellpark.org&gt;</a>
+</p>
+<p class="date"> Date: 2011-08-18 Thu</p>
+<p class="creator">HTML generated by org-mode 6.34c in emacs 23</p>
+</div>
+</div>
+</body>
+</html>
