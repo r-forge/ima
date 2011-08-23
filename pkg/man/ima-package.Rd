@@ -1,5 +1,5 @@
-\name{methy450k-package}
-\alias{methy450k}
+\name{IMA}
+\alias{Illumina Methylation Analyzer}
 \docType{package}
 \title{
 IMA(Illumina Methylation Analyzer) is a package designed to auto-mate the pipeline for analyzing site-level and region-level methylation changes in epigenetic studies utilizing the 450K DNA methylation microarray
@@ -9,7 +9,7 @@ IMA is implemented in R and can be run on any platform with an existing R and Bi
 }
 \details{
 	\tabular{ll}{
-	Package: \tab methy450k\cr
+	Package: \tab IMA\cr
 	Type: \tab Package\cr
 	Version: \tab 1.0\cr
 	Date: \tab 2011-08-22\cr
@@ -25,10 +25,6 @@ Maintainer: Dan Wang <wangdan412@gmail.com>
   https://r-forge.r-project.org/projects/ima/
 }
 \keyword{ package }
-\seealso{
-~~ Optional links to other man pages, e.g. ~~
-
-}
 \examples{
 #data = lumi.methy450R(file = inputmethydata,groupfile = genotypeinput)
 #dataf = lumi.methy450PP(data,na.omit =na.omit,normalization=normalization,transfm = transfm,filterdetectP =filterdetectP, detectPcut = detectPcut, Xchrom = xchrom)
