@@ -1,5 +1,5 @@
 sigtest <-
-function(dataf,gcase = "g2",gcontrol="g1",testmethod = c("wilcox","limma","pooled","satterthwaite"),Padj="BH",concov = "OFF"){
+function(dataf=dataf,gcase = "g2",gcontrol="g1",testmethod = c("wilcox","limma","pooled","satterthwaite"),Padj="BH",concov = "OFF",outputDES = FALSE,rawpcut = NULL,adjustpcut =NULL,betadiffcut = NULL){
         beta = dataf@bmatrix;
         group = dataf@groupinfo;
         index = match(colnames(beta),group$samplename)
@@ -44,6 +44,7 @@ function(dataf,gcase = "g2",gcontrol="g1",testmethod = c("wilcox","limma","poole
         out = cbind(testout,adjustP, difb)
         rownames(out) = rownames(eset);
         colnames(out) = c("P-Value", "Adjust Pval","beta-Difference")
+        out = outputDESfunc(out = out,outputDES = outputDES,rawpcut = rawpcut,adjustpcut =adjustpcut,betadiffcut = betadiffcut)
         return(out)
 }
 

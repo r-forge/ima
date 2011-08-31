@@ -10,7 +10,7 @@ function(indexlist=dataf@GENEInd,beta,sumregion){
                         if(length(indexlist[[i]]) ==1){
                                 temp2[i,] = temp;
                         }else{
-                                temp2[i,] = apply(temp,2,eval(sumregion))
+                                temp2[i,] = apply(temp,2,eval(sumregion),na.rm=TRUE)
                         }
                         
                   }

@@ -1,76 +1,62 @@
 \name{sigtest}
 \alias{sigtest}
-%- Also NEED an '\alias' for EACH other topic documented here.
+
 \title{
-  Differential Methylation Analysis
-%%  ~~function to do ... ~~
+Differential Methylation Analysis
 }
 \description{
-  For each specific region, Wilcoxon rank-sum test (default), Student's t-test and empirical Bayes statistics (G. K. Smyth, 2004) are available for inference in differential testing. Robust linear regression is available as an option to infer methylation change associated with continuous variable (e.g., age). A variety of multiple testing correction algorithms is available, including stringent Bonferroni correction and widely used false discovery rate control. Users can specify the significance criteria in parameter file. The same statistical inference and multiple test correction procedures described above will also be applied to each single site to obtain site-level differential methylation inference.  
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+ For each specific region, Wilcoxon rank-sum test (default), Student's t-test and empirical Bayes statistics (G. K. Smyth, 2004) are available for inference in differential testing. Robust linear regression is available as an option to infer methylation change associated with continuous variable (e.g., age). A variety of multiple testing correction algorithms is available, including stringent Bonferroni correction and widely used false discovery rate control. Users can specify the significance criteria in parameter file. The same statistical inference and multiple test correction procedures described above will also be applied to each single site to obtain site-level differential methylation inference.  
 }
 \usage{
-sigtest(dataf, gcase = "g2", gcontrol = "g1", testmethod = c("wilcox", "limma", "pooled", "satterthwaite"), Padj = "BH", concov = "OFF")
+sigtest(dataf, gcase = "g2", gcontrol = "g1", testmethod = c("wilcox", "limma", "pooled", "satterthwaite"), Padj = "BH", concov = "OFF", outputDES = FALSE, rawpcut = NULL, adjustpcut = NULL, betadiffcut = NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{dataf}{
-    a  methy450batch class returned by the lumi.methy450PP function
-    
-%%     ~~Describe \code{dataf} here~~
+a  methy450batch class returned by the lumi.methy450PP function
 }
-\item{gcase}{
-     the string name of case group in the sample.txt file
-%%     ~~Describe \code{gcase} here~~
+  \item{gcase}{
+ the string name of case group in the sample.txt file
 }
-\item{gcontrol}{
-     the string name of control group in the sample.txt file
-%%     ~~Describe \code{gcontrol} here~~
+  \item{gcontrol}{
+the string name of control group in the sample.txt file
 }
-\item{testmethod}{
-   Wilcoxon rank-sum test (default), Student's t-test and empirical Bayes statistics (G. K. Smyth, 2004).
-%%     ~~Describe \code{testmethod} here~~
+  \item{testmethod}{
+Wilcoxon rank-sum test (default), Student's t-test and empirical Bayes statistics (G. K. Smyth, 2004).
 }
-\item{Padj}{
-  specify which method applied for multiple testing correction.
-%%     ~~Describe \code{Padj} here~~
+  \item{Padj}{
+ specify which method applied for multiple testing correction.
 }
-\item{concov}{
-  if "ON", covariates is continuous variable
-%%     ~~Describe \code{concov} here~~
+  \item{concov}{
+if "ON", covariates is continuous variable
 }
+  \item{outputDES}{
+if outputDES = TRUE, only out the differential methylated sites by using
+defined cut off
 }
-\details{
-%%  ~~ If necessary, more details than the description above ~~
+  \item{rawpcut}{
+only used when outputDES = TRUE, and define the cut off of the raw pvalue
+}
+\item{adjustpcut}{
+ only used when outputDES = TRUE, and define the cut off of the adjusted pvalue
+
+}
+  \item{betadiffcut}{
+only used when outputDES = TRUE, and define the cut off of the beta
+  difference between two groups.
+}
 }
 \value{
-  return a matrix with "P-Value", "Adjust Pval","beta-Difference" in columns for each sites or annotated region
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
-\references{
-   https://r-forge.r-project.org/projects/ima/
-%% ~put references to the literature/web site here ~
+return a matrix with "P-Value", "Adjust Pval","beta-Difference" in columns for each site
 }
 \author{
-   Dan Wang; Li Yan; Qiang Hu; Song Liu 
-%%  ~~who you are~~
+Dan Wang, Li Yang, Qiang Hu,Dominic J Smiraglia,Song Liu
+Maintainer: Dan Wang <wangdan412@gmail.com>
 }
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+  \code{\link{IMA.methy450R}},\code{\link{regionswrapper}},\code{\link{IMA.methy450PP}},\code{\link{testfunc}},\code{\link{sumregionfun}}
 }
 \examples{
+#singtest1 = sigtest(dataf,gcase=gcase,gcontrol=gcontrol,test = testmethod,Padj=Padj,outputDES = FALSE,rawpcut = NULL,adjustpcut =NULL,betadiffcut = NULL)
+#singtest = outputDESfunc(singtest1,outputDES = TRUE,rawpcut = 0.05,adjustpcut =0.05,betadiffcut = 0.14)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

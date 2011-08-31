@@ -36,6 +36,7 @@ specify the vector for covariate:if concov is "ON", this should be the
 \item{gcontrol}{
   specify the string name of phenotype in the case group
 }
+}
 
 }
 \value{
@@ -49,12 +50,12 @@ Maintainer: Dan Wang <wangdan412@gmail.com>
   \code{\link{IMA.methy450R}},\code{\link{regionswrapper}},\code{\link{IMA.methy450PP}},\code{\link{sigtest}},\code{\link{sumregionfun}}
 }
 \examples{
-#data(fullannotInd)
-#indlists = c("BRCA1", "MLH1", "CCNE1", "PTEN", "PALB2")
-#index = match("TSS1500Ind",names(fullannot))
-#annot = fullannot[[index]]
-#index = match(indlists,names(annot))
-#indexlist = annot[index]     
+data(fullannotInd)
+indlists = c("BRCA1", "MLH1", "CCNE1", "PTEN", "PALB2")
+index = match("TSS1500Ind",names(fullannot))
+annot = fullannot[[index]]
+index = match(indlists,names(annot))
+indexlist = annot[index]     
 #beta = data@bmatrix;
 #eset = sumregionfun(indexlist,beta,"mean");
 #testfunc(eset,concov = "OFF",testmethod="limma",Padj="BH",gcase ="g2",gcontrol="g1",grouplev=grouplev)
