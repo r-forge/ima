@@ -32,7 +32,11 @@ It will automatically produce the unsuperwised cluster tree, test results in exc
 The [[./pipeline.R][pipeline]] file can be used to run with default setting or specify options in it.
 
 To run the pipeline file, just simply type "R no save <pipeline.R" under Linux/Unix. Alternatively, paste the commandes in the pipeline.R into R.
+* Annotation file
+The 11 region level annotation for the 450k sites without any filtering could be download from [[./fullannotInd.rda][here]].  
 
+To load it, just type the following command in R after download:
 
+load("./fullannotInd.rda")
 * Project summary
 The project summary page you can find [[http://r-forge.r-project.org/projects/IMA/][here]].
