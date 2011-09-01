@@ -2,12 +2,10 @@
 \alias{IMA.methy450R}
 \alias{exprmethy450}
 \title{
-Read in methylation 450k data
+Load methylation 450k data
 }
 \description{
- This function read in methylation 450k data by one single command. Twoinput data required. One is the methylation expression .txt data which
- exported from BeadStudio with tab separated.The other one is the phenotype data which prepared by the users. This function also return a cluster tree to show the unsuperwised clustering of samples by
-using all 450k sites.The Quality control figures for each samples are also returned in the QC.pdf file and can be used to decide sample/sites filtering.
+This function will load the methylation 450k data. The input for the package consists basically of two files containing \beta value methylation data (including annotation) produced by BeadStudio or GenomeStudio, and sample phenotype data prepared by the user. \texttt{IMA.methy450R} load the input files with a single command described below and a \texttt{exprmethy450} object will be created, whcih includes the following features: \beta value matrix, locus annotion, detection Pvalue, sample phenotype information. Besides, baisc quality control information will be outputed in the QC.pdf, which include unsupervised sample clustering using all loci, boxplot for \beta value of each sample, and barplot showing the percent of loci with detection Pvalue smaller than 1e-5 in each sample.
 }
 \usage{
 IMA.methy450R(file = MethtFileName, columnGrepPattern = list(beta = ".AVG_Beta", detectp = ".Detection.Pval"), groupfile = PhenoFileName)
@@ -15,22 +13,20 @@ IMA.methy450R(file = MethtFileName, columnGrepPattern = list(beta = ".AVG_Beta",
 
 \arguments{
   \item{file}{
-This is the file paths/name containing 450k methylation sites with
-correspinding beta value,detection pvalue and annotation information and was produced from the illumina BeadStudio or GenomeStudio
+This is the input file containing 450k methylation data including beta value, detection pvalue and annotation information. The file can be be produced from the illumina BeadStudio or GenomeStudio
 software.
 }
   \item{columnGrepPattern}{
-specify the string pattern's name of beta value and detection pvalue in the .txt file
+Specify the columns with corresponding characters from the file produced by llumina BeadStudio or GenomeStudio software will be used. 
 }
   \item{groupfile}{
-This is the file paths/name of the penotype data.
+This is the input file containing the penotype data.
 }
 }
 
 \value{
-This function will return a exprmethy450 class including below values:a beta matrix, a annot matrix, a matrix with detect_pvalue for each ~450k site and a group info
-matrix.
-\item{bmatrix}{ beta matrix for each ~450k site on each sample}
+This function will return an exprmethy450 class including these features: a beta value matrix, an annotation matrix, a detection pvalue matrix and a list of sample phenotype.
+\item{bmatrix}{ beta value matrix for each site in each sample}
 \item{detectP}{ a matrix of detection pvalue for each ~450k site on each sample}
 \item{annot}{a matrix of annotation for each ~450k site}
 \item{groupinfo}{ a list of sample ID and penotype for each sample}

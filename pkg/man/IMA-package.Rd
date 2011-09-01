@@ -3,9 +3,9 @@
 
 \docType{package}
 \title{
-IMA(Illumina Methylation Analyzer) is a package designed to auto-mate the pipeline for analyzing site-level and region-level methylation changes in epigenetic studies utilizing the 450K DNA methylation microarray}
+IMA(Illumina Methylation Analyzer) is a package designed to automate the pipeline for analyzing site-level and region-level methylation changes in epigenetic studies utilizing the 450K DNA methylation microarray}
 \description{
-IMA is implemented in R and can be run on any platform with an existing R and Bioconductor installation. The user can either run the pipeline with default setting or specify optional routes in the parameter file. IMA takes as input the beta values representing the methylation levels of individual site reported by Illumina BeadStudio or GenomeStudio software. It allows user to choose several filtering step or modify filtering criteria for specific quality control purpose.For each specific region (e.g., promoter), IMA will collect the loci within it and derive an index of overall region methylation value.Then those value could be used to do differential testing by different method.
+IMA automates the tasks commonly required for the differential analysis of epigenetic data sets utilizing the 450K DNA methylation microarray. The package makes use of Illumina methylation annotation for region definition, as well as several Bioconductor packages for various preprocessing and differential testing steps. Written in open source R environment, it provides the flexibility for users to adopt, extend and customize the functionality for their specific needs. It can be used as an automatic pipeline to analyze specific regions as well as specific sites for downstream functional exploration and hypothesis generation.
 }
 
 \details{

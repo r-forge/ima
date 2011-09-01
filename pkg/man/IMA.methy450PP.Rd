@@ -5,11 +5,7 @@
 Data preprocessing and quality control
 }
 \description{
-It allows user to choose several filtering step or modify filtering
-criteria for specific quality control purpose includes:filtering
-probes by the detetion Pvalue;whether remove the probes from the Xchrom; whether transfer data by using
-square arcsine; whether normalize the data by using quantile normalization; whether remove the probes
-containing missing values.
+It allows user to choose several filtering step or modify filtering criteria for specific quality control purpose. These include whether or not to filter probes based on detetion Pvalue; whether or not to remove the loci from the X chromosome; whether or not to transfer the raw \beta vlaue using square arcsine; whether or not to perform normalization; whether or not to remove the loci containing missing \beta values. The user can choose the preprocessing routes and corresponding cutoffs in the argument of this function. 
 }
 \usage{
 IMA.methy450PP(data, na.omit = TRUE, normalization = FALSE, transfm = FALSE, filtersample = TRUE, filterdetectP = TRUE, detectPcut = 0.75, locidiff = FALSE, locidiffcut = 0.01, Xchrom = TRUE)
@@ -48,26 +44,26 @@ if TRUE, Remove the sites on chromosome X
  }
 }
 \details{
-It allows user to choose several filtering step or modify filtering criteria for specific quality control purpose. By default, IMA will filter out loci with missing beta value, from the X chromosome or with median detection P-value greater than 0.05. The option for sample level quality control is also provided (B. C. Christensen et al., 2011). Although the raw beta values will be analyzed as recommended by Illumina, the user can choose Arcsine squareroot transformation.  Both scaling and quantile normalization options are available for cross sample normalization.
+It allows user to choose several filtering step or modify filtering criteria for specific quality control purpose. By default, IMA will filter out loci with missing beta value, from the X chromosome or with median detection P-value greater than 0.05 across the samples. The option for sample level quality control is also provided (B. C. Christensen et al., 2011). Although the raw beta values will be analyzed as recommended by Illumina, the user can choose Arcsine squareroot transformation.  Both scaling and quantile normalization options are available for cross sample normalization.
 }
 
 \value{
 This function will return a methy450batch class including:
-\item{bmatrix}{ a beta matrix for filtered  sites}
-\item{detectP}{ a matrix of detection pvalue for filtered sites}
-\item{annot}{a matrix of annotation for filtered sites}
-\item{groupinfo}{ a list of sample ID and penotype for each sample}
-\item{TSS1500Ind}{ a list of sites ID only on the TSS1500 region for each gene  }
-\item{TSS200Ind}{ a list of sites ID only on the TSS200 region for each gene }
-\item{UTR5Ind}{ a list of sites ID only on the 5' UTR region for each gene }
-\item{EXON1Ind}{a list of sites ID only on the 1st EXON for each gene}
-\item{UTR3Ind}{a list of sites ID only on the 3' UTR region for each gene}
-\item{GENEBODYInd}{a list of sites ID only on the gene body region for each  gene}
-\item{ISLANDInd}{a list of istes ID only on the ISLAND region for each UCSC_CPG_ISLAND}
-\item{ NSHOREInd}{a list of istes ID only on the N Shore region for each  UCSC_CPG_ISLAND}
-\item{SSHOREInd}{a list of istes ID only on the S Shore region for each  UCSC_CPG_ISLAND}
-\item{NSHELFInd}{a list of istes ID only on the N Shelf region for each   UCSC_CPG_ISLAND}
-\item{SSHELFInd}{a list of istes ID only on the S Shelf region for each   UCSC_CPG_ISLAND}
+\item{bmatrix}{ a matrix of beta value for individual sites}
+\item{detectP}{ a matrix of detection pvalue for individual sites}
+\item{annot}{a matrix of annotation information for individual sites}
+\item{groupinfo}{ a list of sample ID and penotype of each sample}
+\item{TSS1500Ind}{ a list of sites ID belonging to the TSS1500 region of each gene  }
+\item{TSS200Ind}{ a list of sites ID belonging to the TSS200 region of each gene }
+\item{UTR5Ind}{ a list of sites ID belonging to the 5' UTR region of each gene }
+\item{EXON1Ind}{a list of sites ID belonging to the 1st EXON of each gene}
+\item{UTR3Ind}{a list of sites ID belonging to the 3' UTR region of each gene}
+\item{GENEBODYInd}{a list of sites ID belonging to the gene body region of each gene}
+\item{ISLANDInd}{a list of istes ID belonging to the ISLAND region of each UCSC_CPG_ISLAND}
+\item{ NSHOREInd}{a list of istes ID belonging to the N Shore region of each UCSC_CPG_ISLAND}
+\item{SSHOREInd}{a list of istes ID belonging to the S Shore region of each UCSC_CPG_ISLAND}
+\item{NSHELFInd}{a list of istes ID belonging to the N Shelf region of each UCSC_CPG_ISLAND}
+\item{SSHELFInd}{a list of istes ID belonging to the S Shelf region of each UCSC_CPG_ISLAND}
 
 }
 \author{

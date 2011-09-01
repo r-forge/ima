@@ -26,7 +26,7 @@ If your system does not have them installed, the easiest way to install them is 
 
 install.packages(c("WriteXLS","GSA","limma","dplR","MASS","bioDist","heatmap.2"))
 * Tutorial
-  A vignentte that illustrate various aspects of IMA is available and it can be found [[./meth450.pdf][here]]
+  A vignentte that illustrate various aspects of IMA is available and it can be found [[./meth450k.pdf][here]]
 * Pipeline
 It will automatically produce the unsuperwised cluster tree, test results in excel file and saved the result into Rdata for further explor.
 The [[./pipeline.R][pipeline]] file can be used to run with default setting or specify options in it.
