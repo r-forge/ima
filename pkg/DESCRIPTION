@@ -1,7 +1,7 @@
 Package:IMA 
 Type: Package
 Title: IMA:Illumina Methylation Analyzer
-Version: 1.0
+Version: 0.1.2
 Date: 2011-08-25
 Depends: R (>= 2.12.0), methods, utils, stats,WriteXLS,limma,dplR,MASS,bioDist,preprocessCore
 Author: Dan Wang, Li Yan, Qiang Hu,Dominic J Smiraglia, Song Liu
