@@ -23,7 +23,7 @@ Dan Wang, Li Yang, Qiang Hu,Dominic J Smiraglia,Song Liu
 Maintainer: Dan Wang <wangdan412@gmail.com>
 }
 \seealso{
-  \code{\link{IMA.methy450R}},\code{\link{IMA.methy450PP}},\code{\link{regionswrapper}},\code{\link{testfunc}},\code{\link{sigtest}},\code{\link{sumregionfun}}
+  \code{\link{IMA.methy450R}},\code{\link{IMA.methy450PP}},\code{\link{regionswrapper}},\code{\link{testfunc}},\code{\link{sitetest}},\code{\link{sumregionfun}}
 }
 \examples{
 ###Users specify the data paths/paramters in the pipeline.R before

@@ -7,7 +7,7 @@
   for each specific region (e.g., promoter), IMA will collect the loci within it and derive an index of overall region methylation value. Currently, there are three different index metrics implemented in IMA: mean, median, and Tukey's Biweight robust average.  By default, the median beta values will be used as the region's methylation index for further analysis. 
 }
 \usage{
-sumregionfun(indexlist = dataf@GENEInd, beta, sumregion)
+sumregionfun(indexlist , beta, sumregion)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

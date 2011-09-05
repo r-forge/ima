@@ -1,6 +1,6 @@
 outputDESfunc <-
-function(out=out,outputDES = TRUE,rawpcut = 0.05,adjustpcut =0.05,betadiffcut = 0.14){
-       if(outputDES==TRUE){
+function(out,rawpcut = 0.05,adjustpcut =0.05,betadiffcut = 0.14){
+     
           if(is.null(rawpcut)&is.null(adjustpcut)& is.null(betadiffcut)){
             cat("Please choose the cut off of the raw pvalue, adjust pvalue,or beta difference")
           }else{
@@ -21,6 +21,6 @@ function(out=out,outputDES = TRUE,rawpcut = 0.05,adjustpcut =0.05,betadiffcut = 
                   }
           }
         out = out[rawpcutout&adjustpcutout&betadiffcutout,]
-        }else{out = out}
+       
   }
 

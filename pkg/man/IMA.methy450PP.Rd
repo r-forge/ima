@@ -5,7 +5,7 @@
 Data preprocessing and quality control
 }
 \description{
-It allows user to choose several filtering step or modify filtering criteria for specific quality control purpose. These include whether or not to filter probes based on detetion Pvalue; whether or not to remove the loci from the X chromosome; whether or not to transfer the raw \beta vlaue using square arcsine; whether or not to perform normalization; whether or not to remove the loci containing missing \beta values. The user can choose the preprocessing routes and corresponding cutoffs in the argument of this function. 
+It allows user to choose several filtering step or modify filtering criteria for specific quality control purpose. These include whether or not to filter probes based on detetion Pvalue; whether or not to remove the loci from the X chromosome; whether or not to transfer the raw \eqn{\beta} vlaue using square arcsine; whether or not to perform normalization; whether or not to remove the loci containing missing \eqn{\beta} values. The user can choose the preprocessing routes and corresponding cutoffs in the argument of this function. 
 }
 \usage{
 IMA.methy450PP(data, na.omit = TRUE, normalization = FALSE, transfm = FALSE, filtersample = TRUE, filterdetectP = TRUE, detectPcut = 0.75, locidiff = FALSE, locidiffcut = 0.01, Xchrom = TRUE)
@@ -60,7 +60,7 @@ This function will return a methy450batch class including:
 \item{UTR3Ind}{a list of sites ID belonging to the 3' UTR region of each gene}
 \item{GENEBODYInd}{a list of sites ID belonging to the gene body region of each gene}
 \item{ISLANDInd}{a list of istes ID belonging to the ISLAND region of each UCSC_CPG_ISLAND}
-\item{ NSHOREInd}{a list of istes ID belonging to the N Shore region of each UCSC_CPG_ISLAND}
+\item{NSHOREInd}{a list of istes ID belonging to the N Shore region of each UCSC_CPG_ISLAND}
 \item{SSHOREInd}{a list of istes ID belonging to the S Shore region of each UCSC_CPG_ISLAND}
 \item{NSHELFInd}{a list of istes ID belonging to the N Shelf region of each UCSC_CPG_ISLAND}
 \item{SSHELFInd}{a list of istes ID belonging to the S Shelf region of each UCSC_CPG_ISLAND}
@@ -71,7 +71,7 @@ Dan Wang, Li Yang, Qiang Hu,Dominic J Smiraglia,Song Liu
 Maintainer: Dan Wang <wangdan412@gmail.com>
 }
 \seealso{
-  \code{\link{IMA.methy450R}},\code{\link{regionswrapper}},\code{\link{testfunc}},\code{\link{sigtest}},\code{\link{sumregionfun}}
+  \code{\link{IMA.methy450R}},\code{\link{regionswrapper}},\code{\link{testfunc}},\code{\link{sitetest}},\code{\link{sumregionfun}}
 }
 \examples{
 #dataf =IMA.methy450PP(data,na.omit=na.omit,normalization=normalization,

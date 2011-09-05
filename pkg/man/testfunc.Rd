@@ -8,7 +8,7 @@
 }
 
 \usage{
-testfunc(eset = eset, concov = c("ON", "OFF"), testmethod = c("wilcox", "limma", "pooled", "satterthwaite"), Padj = c("holm", "hochberg", "hommel", "bonferroni", "BH", "BY", "fdr", "none"), grouplev = grouplev, gcase = "g1", gcontrol = "g2")
+testfunc(eset, concov = c("ON", "OFF"), testmethod = c("wilcox", "limma", "pooled", "satterthwaite"), Padj = c("holm", "hochberg", "hommel", "bonferroni", "BH", "BY", "fdr", "none"), grouplev, gcase = "g1", gcontrol = "g2")
 }
 
 \arguments{
@@ -46,7 +46,7 @@ Dan Wang, Li Yang, Qiang Hu,Dominic J Smiraglia,Song Liu
 Maintainer: Dan Wang <wangdan412@gmail.com>
 }
 \seealso{
-  \code{\link{IMA.methy450R}},\code{\link{regionswrapper}},\code{\link{IMA.methy450PP}},\code{\link{sigtest}},\code{\link{sumregionfun}}
+  \code{\link{IMA.methy450R}},\code{\link{regionswrapper}},\code{\link{IMA.methy450PP}},\code{\link{sitetest}},\code{\link{sumregionfun}}
 }
 \examples{
 #data(fullannotInd)

@@ -8,7 +8,7 @@ Output the differential expressed sites/regions
   specified cut off. 
  }
 \usage{
-outputDESfunc(out = out, outputDES = TRUE, rawpcut = 0.05, adjustpcut = 0.05, betadiffcut = 0.14)
+outputDESfunc(out, rawpcut = 0.05, adjustpcut = 0.05, betadiffcut = 0.14)
 }
 \arguments{
   \item{out}{
@@ -16,20 +16,15 @@ this is the return results by function of sigtest,
 testfunc,regionwrapper with three columns: pvalue,adjusted pvalue and
 beta difference.
 }
-  \item{outputDES}{
-if outputDES = TRUE, only out the differential methylated sites by using
-defined cut off
-}
   \item{rawpcut}{
-only used when outputDES = TRUE, and define the cut off of the raw pvalue
+define the cut off of the raw pvalue
 }
 \item{adjustpcut}{
- only used when outputDES = TRUE, and define the cut off of the adjusted pvalue
+define the cut off of the adjusted pvalue
 
 }
   \item{betadiffcut}{
-only used when outputDES = TRUE, and define the cut off of the beta
-  difference between two groups.
+define the cut off of the \eqn{\beta} difference between two groups.
 }
 
 }
@@ -45,6 +40,6 @@ Maintainer: Dan Wang <wangdan412@gmail.com>
   \code{\link{IMA.methy450R}},\code{\link{regionswrapper}},\code{\link{IMA.methy450PP}},\code{\link{testfunc}},\code{\link{sumregionfun}}
 }
 \examples{
-#singtest1 = sigtest(dataf,gcase=gcase,gcontrol=gcontrol,test = testmethod,Padj=Padj,outputDES = FALSE,rawpcut = NULL,adjustpcut =NULL,betadiffcut = NULL)
-#singtest = outputDESfunc(singtest1,outputDES = TRUE,rawpcut = 0.05,adjustpcut =0.05,betadiffcut = 0.14)
+#sitetest = sitetest(dataf,gcase=gcase,gcontrol=gcontrol,test = testmethod,Padj=Padj,outputDES = FALSE,rawpcut = NULL,adjustpcut =NULL,betadiffcut = NULL)
+#sitetest = outputDESfunc(sitetest,rawpcut = 0.05,adjustpcut =0.05,betadiffcut = 0.14)
 }

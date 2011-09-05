@@ -1,5 +1,5 @@
 regionswrapper <-
-function(dataf=dataf,sumregion=c("mean","median","tbrm"),gcase = "g2",gcontrol="g1",testmethod = c("wilcox","limma","pooled","satterthwaite"),Padj="BH",concov = c("OFF","ON"),list11excel= list11excel,list11Rdata = list11Rdata,outputDES = FALSE,rawpcut = NULL,adjustpcut =NULL,betadiffcut = NULL){
+function(dataf,sumregion=c("mean","median","tbrm"),gcase = "g2",gcontrol="g1",testmethod = c("wilcox","limma","pooled","satterthwaite"),Padj="BH",concov = c("OFF","ON"),list11excel,list11Rdata,outputDES = FALSE,rawpcut = NULL,adjustpcut =NULL,betadiffcut = NULL){
         require("dplR")
         beta = dataf@bmatrix;
         group = dataf@groupinfo;

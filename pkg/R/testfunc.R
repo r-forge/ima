@@ -1,5 +1,5 @@
 testfunc <-
-function(eset=eset,concov=c("ON","OFF"),testmethod = c("wilcox","limma","pooled","satterthwaite"),Padj=c("holm", "hochberg", "hommel", "bonferroni", "BH", "BY","fdr", "none"),grouplev =grouplev,gcase = "g1",gcontrol="g2"){
+function(eset,concov=c("ON","OFF"),testmethod = c("wilcox","limma","pooled","satterthwaite"),Padj=c("holm", "hochberg", "hommel", "bonferroni", "BH", "BY","fdr", "none"),grouplev,gcase = "g1",gcontrol="g2"){
         if(concov == "ON"){
               cat("RUN Robust linear regression\n")
               require(MASS)

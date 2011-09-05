@@ -1,6 +1,5 @@
-IMA.methy450R <-
-function(file = MethtFileName, columnGrepPattern=list(beta=".AVG_Beta",detectp=".Detection.Pval"),groupfile = PhenoFileName){
-        data = read.delim(file,sep="\t",skip =8, row.names = 1)
+IMA.methy450R <-function(file, columnGrepPattern=list(beta=".AVG_Beta",detectp=".Detection.Pval"),groupfile){
+        data = read.delim(file,sep="\t",skip =8, row.names = 1)# #skip line may be changed 
         cat("dimension of the input methylation data",dim(data),"\n")
         #####beta matrix
         betamatrix = data[,grep(columnGrepPattern$beta,colnames(data))]
@@ -25,13 +24,8 @@ function(file = MethtFileName, columnGrepPattern=list(beta=".AVG_Beta",detectp="
         samples = paste(group[,1],group[,2],sep="_")
         hc1<-hclust(cor.dist(t(eset)), method="average")
         pdf("./QC.pdf")
-        #postscript("../../pg_0001.ps")
         plot(hc1,samples, xlab="Sample", main="Clusting All Genes (Pearson correlation)", lwd=2, font.axis=2, font.lab=2)
-        #dev.off()
-        #postscript("../../pg_0002.ps")
         boxplot(betamatrix,ylab = "beta Value")
-        #dev.off()
-        #postscript("../../pg_0003.ps")
         avgPval = apply(detect_p,2,function(x){sum(x>=1e-5)*100/length(x)})
         barplot(avgPval, ylab = "% of detect pvalue >1e-5")
         dev.off()

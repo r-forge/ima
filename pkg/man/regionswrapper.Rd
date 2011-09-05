@@ -11,7 +11,7 @@ functional annotation, pathway analysis, network etc. This function will
 took up to 2 hours to run.
 }
 \usage{
-regionswrapper(dataf, sumregion = c("mean", "median", "tbrm"), gcase = "g2", gcontrol = "g1", testmethod = c("wilcox", "limma", "pooled", "satterthwaite"), Padj = "BH", concov = c("OFF", "ON"), list11excel = list11excel, list11Rdata = list11Rdata, outputDES = FALSE, rawpcut = NULL, adjustpcut = NULL, betadiffcut = NULL)
+regionswrapper(dataf, sumregion = c("mean", "median", "tbrm"), gcase = "g2", gcontrol = "g1", testmethod = c("wilcox", "limma", "pooled", "satterthwaite"), Padj = "BH", concov = c("OFF", "ON"), list11excel  , list11Rdata, outputDES = FALSE, rawpcut = NULL, adjustpcut = NULL, betadiffcut = NULL)
 }
 
 \arguments{
@@ -70,7 +70,7 @@ Maintainer: Dan Wang <wangdan412@gmail.com>
 }
 
 \seealso{
-  \code{\link{IMA.methy450PP}},\code{\link{IMA.methy450R}},\code{\link{testfunc}},\code{\link{sigtest}},\code{\link{sumregionfun}}
+  \code{\link{IMA.methy450PP}},\code{\link{IMA.methy450R}},\code{\link{testfunc}},\code{\link{sitetest}},\code{\link{sumregionfun}}
 }
 \examples{
 #regionswrapper(dataf,sumregion=sumregion,gcase=gcase,gcontrol=gcontrol,

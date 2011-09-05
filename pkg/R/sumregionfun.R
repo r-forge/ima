@@ -1,5 +1,5 @@
 sumregionfun <-
-function(indexlist=dataf@GENEInd,beta,sumregion){
+function(indexlist,beta,sumregion){
                 temp2 = matrix(NA,nrow= length(indexlist),ncol = ncol(beta))
                 rownames(temp2) = names(indexlist)
                 colnames(temp2) = colnames(beta)
