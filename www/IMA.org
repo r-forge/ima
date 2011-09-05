@@ -21,22 +21,27 @@ install.packages("IMA", repos="http://R-Forge.R-project.org")
 
 **Prerequisites: 
 
-The IMA package requires the following packages to be installed: WriteXLS,GSA,limma,dplR,MASS,bioDist,heatmap.2.
+The IMA package requires the following packages to be installed: WriteXLS,GSA,limma,dplR,MASS,bioDist,preprocessCore.
 If your system does not have them installed, the easiest way to install them is to issue the following command at the R prompt:
 
-install.packages(c("WriteXLS","GSA","limma","dplR","MASS","bioDist","heatmap.2"))
+install.packages(c("WriteXLS","GSA","limma","dplR","MASS","bioDist","preproceCore"))
 * Tutorial
-  A vignentte that illustrate various aspects of IMA is available and it can be found [[./meth450k.pdf][here]]
-* Pipeline
-It will automatically produce the unsuperwised cluster tree, test results in excel file and saved the result into Rdata for further explor.
-The [[./pipeline.R][pipeline]] file can be used to run with default setting or specify options in it.
-
-To run the pipeline file, just simply type "R no save <pipeline.R" under Linux/Unix. Alternatively, paste the commandes in the pipeline.R into R.
+A vignentte that illustrate various aspects of IMA is available and it can be found [[./meth450.pdf][here]]
+  
+The user manual of IMA package could be found [[./IMA-manual.pdf][here]].
 * Annotation file
-The 11 region level annotation for the 450k sites without any filtering could be download from [[./fullannotInd.rda][here]].  
+
+The 11 region level annotation for the 450k sites without any filtering could be download from here.
 
 To load it, just type the following command in R after download:
 
 load("./fullannotInd.rda")
+* Pipeline
+
+It will automatically produce the unsuperwised cluster tree, test results in excel file and saved the result into Rdata for further explor.
+The [[./pipeline.R][pipeline]] file can be used to run with default setting or specify options in it.
+
+To run the pipeline file, just simply type "R no save <pipeline.R" under Linux/Unix. Alternatively, paste the commandes in the pipeline.R into R.
+
 * Project summary
 The project summary page you can find [[http://r-forge.r-project.org/projects/IMA/][here]].

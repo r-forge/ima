@@ -80,8 +80,8 @@ lang="en" xml:lang="en">
 <li><a href="#sec-1">1 Abstract </a></li>
 <li><a href="#sec-2">2 Installation </a></li>
 <li><a href="#sec-3">3 Tutorial </a></li>
-<li><a href="#sec-4">4 Pipeline </a></li>
-<li><a href="#sec-5">5 Annotation file </a></li>
+<li><a href="#sec-4">4 Annotation file </a></li>
+<li><a href="#sec-5">5 Pipeline </a></li>
 <li><a href="#sec-6">6 Project summary </a></li>
 </ul>
 </div>
@@ -107,11 +107,11 @@ lang="en" xml:lang="en">
 **Prerequisites: 
 </p>
 <p>
-The IMA package requires the following packages to be installed: WriteXLS,GSA,limma,dplR,MASS,bioDist,heatmap.2.
+The IMA package requires the following packages to be installed: WriteXLS,GSA,limma,dplR,MASS,bioDist,preprocessCore.
 If your system does not have them installed, the easiest way to install them is to issue the following command at the R prompt:
 </p>
 <p>
-install.packages(c("WriteXLS","GSA","limma","dplR","MASS","bioDist","heatmap.2"))
+install.packages(c("WriteXLS","GSA","limma","dplR","MASS","bioDist","preproceCore"))
 </p></div>
 
 </div>
@@ -120,29 +120,21 @@ install.packages(c("WriteXLS","GSA","limma","dplR","MASS","bioDist","heatmap.2")
 <h2 id="sec-3"><span class="section-number-2">3</span> Tutorial </h2>
 <div class="outline-text-2" id="text-3">
 
-<p>A vignentte that illustrate various aspects of IMA is available and it can be found <a href="./meth450k.pdf">here</a>
+<p>A vignentte that illustrate various aspects of IMA is available and it can be found <a href="./meth450.pdf">here</a>
+</p>
+<p>
+The user manual of IMA package could be found <a href="./IMA-manual.pdf">here</a>.
 </p></div>
 
 </div>
 
 <div id="outline-container-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> Pipeline </h2>
+<h2 id="sec-4"><span class="section-number-2">4</span> Annotation file </h2>
 <div class="outline-text-2" id="text-4">
 
-<p>It will automatically produce the unsuperwised cluster tree, test results in excel file and saved the result into Rdata for further explor.
-The <a href="./pipeline.R">pipeline</a> file can be used to run with default setting or specify options in it.
-</p>
+
 <p>
-To run the pipeline file, just simply type "R no save &lt;pipeline.R" under Linux/Unix. Alternatively, paste the commandes in the pipeline.R into R.
-</p></div>
-
-</div>
-
-<div id="outline-container-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> Annotation file </h2>
-<div class="outline-text-2" id="text-5">
-
-<p>The 11 region level annotation for the 450k sites without any filtering could be download from <a href="./fullannotInd.rda">here</a>.  
+The 11 region level annotation for the 450k sites without any filtering could be download from here.
 </p>
 <p>
 To load it, just type the following command in R after download:
@@ -150,6 +142,22 @@ To load it, just type the following command in R after download:
 <p>
 load("./fullannotInd.rda")
 </p></div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Pipeline </h2>
+<div class="outline-text-2" id="text-5">
+
+
+<p>
+It will automatically produce the unsuperwised cluster tree, test results in excel file and saved the result into Rdata for further explor.
+The <a href="./pipeline.R">pipeline</a> file can be used to run with default setting or specify options in it.
+</p>
+<p>
+To run the pipeline file, just simply type "R no save &lt;pipeline.R" under Linux/Unix. Alternatively, paste the commandes in the pipeline.R into R.
+</p>
+</div>
 
 </div>
 
