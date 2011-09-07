@@ -1,5 +1,5 @@
-sumregionfun <-
-function(indexlist,beta,sumregion){
+indexregionfunc <-
+function(indexlist,beta,indexmethod=c("mean","median","tbrm")){
                 temp2 = matrix(NA,nrow= length(indexlist),ncol = ncol(beta))
                 rownames(temp2) = names(indexlist)
                 colnames(temp2) = colnames(beta)
@@ -10,7 +10,7 @@ function(indexlist,beta,sumregion){
                         if(length(indexlist[[i]]) ==1){
                                 temp2[i,] = temp;
                         }else{
-                                temp2[i,] = apply(temp,2,eval(sumregion),na.rm=TRUE)
+                                temp2[i,] = apply(temp,2,eval(indexmethod),na.rm=TRUE)
                         }
                         
                   }

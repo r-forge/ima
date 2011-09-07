@@ -6,6 +6,6 @@ Date: 2011-08-25
 Depends: R (>= 2.12.0), methods, utils, stats,WriteXLS,limma,dplR,MASS,bioDist,preprocessCore
 Author: Dan Wang, Li Yan, Qiang Hu,Dominic J Smiraglia, Song Liu
 Maintainer: Dan Wang<dan.wang@roswellpark.org>
-Description: IMA(Illumina Methylation Analyzer) is a package designed to auto-mate the pipeline for analyzing site-level and region-level methylation changes in epigenetic studies utilizing the 450K DNA methylation microarray.
+Description: IMA(Illumina Methylation Analyzer) is a package designed to automate the pipeline for analyzing site-level and region-level methylation changes in epigenetic studies utilizing the 450K DNA methylation microarray.
 License: GPL
 LazyLoad: yes

@@ -1,14 +1,16 @@
 \name{testfunc}
 \alias{testfunc}
 \title{
-  Differential testing function
+  Differential methylation testing function
 }
 \description{
-  pick up the test for differential methylation testing 
+  Choose the testing function for differential methylation inference 
 }
 
 \usage{
-testfunc(eset, concov = c("ON", "OFF"), testmethod = c("wilcox", "limma", "pooled", "satterthwaite"), Padj = c("holm", "hochberg", "hommel", "bonferroni", "BH", "BY", "fdr", "none"), grouplev, gcase = "g1", gcontrol = "g2")
+testfunc(eset, concov = c("ON", "OFF"), testmethod = c("wilcox", "limma", 
+"pooled", "satterthwaite"),Padj = c("holm", "hochberg", "hommel", "bonferroni", 
+"BH", "BY", "fdr", "none"), grouplev, gcase = "g1",gcontrol = "g2")
 }
 
 \arguments{
@@ -21,41 +23,40 @@ a beta matrix
 
 }
   \item{testmethod}{
-  Wilcoxon rank-sum test (default), Student's t-test and empirical Bayes statistics (G. K. Smyth, 2004).
+Wilcoxon rank-sum test (default), Student's t-test ("pooled" or "satterthwaite"), or empirical Bayes statistics (G. K. Smyth, 2004).
 }
   \item{Padj}{
-specify which method applied for multiple testing correction.
+The methods available for multiple testing correction. Users could choose any method provided in the p.adjust function of R stat package.
 }
   \item{grouplev}{
 specify the vector for covariate:if concov is "ON", this should be the
   continuous values, if concov is "OFF", this should be categorical values. 
 }
 \item{gcase}{
-   specify the string name of phenotype in the case group
+the string name of case group in the sample.txt file
 }
 \item{gcontrol}{
-  specify the string name of phenotype in the case group
+the string name of control group in the sample.txt file
 }
 
 }
 \value{
-return a matrix with "P-Value", "Adjust Pval","beta-Difference" in columns for each sites or annotated region
+return a matrix with "P-Value", "Adjust Pval","beta-Difference" in seperate columns for each site or annotated region
 }
 \author{
 Dan Wang, Li Yang, Qiang Hu,Dominic J Smiraglia,Song Liu
+
 Maintainer: Dan Wang <wangdan412@gmail.com>
 }
 \seealso{
-  \code{\link{IMA.methy450R}},\code{\link{regionswrapper}},\code{\link{IMA.methy450PP}},\code{\link{sitetest}},\code{\link{sumregionfun}}
+  \code{\link{IMA.methy450R}},\code{\link{regionswrapper}},\code{\link{IMA.methy450PP}},\code{\link{sitetest}},\code{\link{indexregionfunc}}
 }
 \examples{
-#data(fullannotInd)
+#data("fullannotInd")
 #indlists = c("BRCA1", "MLH1", "CCNE1", "PTEN", "PALB2")
-#index = match("TSS1500Ind",names(fullannot))
-#annot = fullannot[[index]]
-#index = match(indlists,names(annot))
-#indexlist = annot[index]     
-#beta = data@bmatrix;
-#eset = sumregionfun(indexlist,beta,"mean");
-#testfunc(eset,concov = "OFF",testmethod="limma",Padj="BH",gcase ="g2",gcontrol="g1",grouplev=grouplev)
+#annot = fullannot[[match("TSS1500Ind",names(fullannot))]]
+#indexlist = annot[match(indlists,names(annot))]     
+#eset = indexregionfunc(indexlist,data@bmatrix,"mean");
+#testfunc(eset,concov = "OFF",testmethod="limma",Padj="BH",gcase ="g2",gcontrol="g1",
+#grouplev=grouplev)
 }

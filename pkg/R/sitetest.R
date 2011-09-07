@@ -44,7 +44,7 @@ function(dataf,gcase = "g2",gcontrol="g1",testmethod = c("wilcox","limma","poole
         out = cbind(testout,adjustP, difb)
         rownames(out) = rownames(eset);
         colnames(out) = c("P-Value", "Adjust Pval","beta-Difference")
-        out = outputDESfunc(out = out,rawpcut = rawpcut,adjustpcut =adjustpcut,betadiffcut = betadiffcut)
+        out = outputDMfunc(out = out,rawpcut = rawpcut,adjustpcut =adjustpcut,betadiffcut = betadiffcut)
         return(out)
 }
 

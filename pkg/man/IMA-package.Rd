@@ -10,7 +10,7 @@ IMA automates the tasks commonly required for the differential analysis of epige
 
 \details{
 \tabular{ll}{
-Package: \tab ima\cr
+Package: \tab IMA\cr
 Type: \tab Package\cr
 Version: \tab 1.0\cr
 Date: \tab 2011-08-25\cr
@@ -23,13 +23,13 @@ Dan Wang, Li Yang, Qiang Hu,Dominic J Smiraglia,Song Liu
 Maintainer: Dan Wang <wangdan412@gmail.com>
 }
 \seealso{
-  \code{\link{IMA.methy450R}},\code{\link{IMA.methy450PP}},\code{\link{regionswrapper}},\code{\link{testfunc}},\code{\link{sitetest}},\code{\link{sumregionfun}}
+  \code{\link{IMA.methy450R}},\code{\link{IMA.methy450PP}},\code{\link{regionswrapper}},\code{\link{testfunc}},\code{\link{sitetest}},\code{\link{indexregionfunc}}
 }
 \examples{
 ###Users specify the data paths/paramters in the pipeline.R before
 #run the comman below 
-###R --no-save < pipeline.R##This will auto-mate to produce the result
-#of methylation
+###R --no-save < pipeline.R##This will automately produce the result
+#of methylation change
 ###the pipeline.R file could be found here
 ###http://ima.r-forge.r-project.org/
 }

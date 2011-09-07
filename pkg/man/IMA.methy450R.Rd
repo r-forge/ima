@@ -8,8 +8,7 @@ Load methylation 450k data
 This function will load the methylation 450k data. The input for the package consists basically of two files containing  value methylation data (including annotation) produced by BeadStudio or GenomeStudio, and sample phenotype data prepared by the user. \emph{IMA.methy450R} load the input files with a single command described below and a \emph{exprmethy450} object will be created, which includes the following features: \eqn{\beta} value matrix, locus annotion, detection Pvalue, sample phenotype information. Besides, baisc quality control information will be outputed in the QC.pdf, which include unsupervised sample clustering using all loci, boxplot for  value of each sample, and barplot showing the percent of loci with detection Pvalue smaller than 1e-5 in each sample.
 }
 \usage{
-IMA.methy450R(file , columnGrepPattern = list(beta =
-".AVG_Beta"
+IMA.methy450R(file , columnGrepPattern = list(beta =".AVG_Beta"
 , detectp = ".Detection.Pval"), groupfile)
 }
 
@@ -42,7 +41,7 @@ Dan Wang, Li Yang, Qiang Hu,Dominic J Smiraglia,Song Liu
 Maintainer: Dan Wang <wangdan412@gmail.com>
 }
 \seealso{
-  \code{\link{IMA.methy450PP}},\code{\link{regionswrapper}},\code{\link{testfunc}},\code{\link{sitetest}},\code{\link{sumregionfun}}
+  \code{\link{IMA.methy450PP}},\code{\link{regionswrapper}},\code{\link{testfunc}},\code{\link{sitetest}},\code{\link{indexregionfunc}}
 }
 \examples{
 setwd(system.file("extdata", package="IMA"))

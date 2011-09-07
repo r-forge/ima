@@ -1,8 +1,9 @@
-outputDESfunc <-
+outputDMfunc <-
 function(out,rawpcut = 0.05,adjustpcut =0.05,betadiffcut = 0.14){
      
           if(is.null(rawpcut)&is.null(adjustpcut)& is.null(betadiffcut)){
-            cat("Please choose the cut off of the raw pvalue, adjust pvalue,or beta difference")
+            cat("Please choose the cut off of the raw pvalue, adjust pvalue,or beta difference","\n")
+            out = out;
           }else{
                  if(!is.null(rawpcut)){
                         rawpcutout = out[,1]<=rawpcut
@@ -19,8 +20,7 @@ function(out,rawpcut = 0.05,adjustpcut =0.05,betadiffcut = 0.14){
                   }else{
                        betadiffcutout = abs(out[,3])>=0;
                   }
-          }
-        out = out[rawpcutout&adjustpcutout&betadiffcutout,]
-       
+                  out = out[rawpcutout&adjustpcutout&betadiffcutout,]
+           }
   }
 

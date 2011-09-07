@@ -1,5 +1,5 @@
 IMA.methy450PP <-
-function(data=data,na.omit = TRUE,normalization=FALSE,transfm = FALSE,filtersample = TRUE,filterdetectP = TRUE, detectPcut = 0.75,locidiff = FALSE,locidiffcut=0.01, Xchrom = TRUE){
+function(data,na.omit = TRUE,normalization=FALSE,transfm = FALSE,samplefilterdetectP = c(FALSE,1e-5),samplefilterperc = 0.75,sitefilterdetectP = c(FALSE,0.05),sitefilterperc=0.75,locidiff = c(FALSE,0.01), Xchrom = TRUE){
 	bmatrix = data@bmatrix
         detect_p = data@detectP
         annotation = data@annot;
@@ -7,15 +7,14 @@ function(data=data,na.omit = TRUE,normalization=FALSE,transfm = FALSE,filtersamp
         orignalrownm = rownames(bmatrix)
         control = groupinfo$samplename[groupinfo$group=="g1"]
         experiment = groupinfo$samplename[groupinfo$group=="g2"]
-        if(filtersample){
-             goodsample   = colSums(detect_p<= 1e-5)>detectPcut*nrow(detect_p)
+        if(samplefilterdetectP){
+             goodsample   = colSums(detect_p<=samplefilterdetectP)>=samplefilterperc*nrow(detect_p)
              bmatrix = bmatrix[,goodsample]
              detect_p = detect_p[,goodsample]
              cat("Total samples:",colnames(bmatrix),"\n","Kept samples:",colnames(bmatrix)[goodsample],"\n");
              groupinfo =list(samplename = as.character(groupinfo$samplename[goodsample]),group=groupinfo$group[goodsample])
               control = groupinfo$samplename[groupinfo$group=="g1"]
               experiment = groupinfo$samplename[groupinfo$group=="g2"]
-
         }
         if(na.omit){###Remove the sites containing missing value
               bmatrix = na.omit(bmatrix);
@@ -33,10 +32,9 @@ function(data=data,na.omit = TRUE,normalization=FALSE,transfm = FALSE,filtersamp
                 cat(length(index),"sites on chrX and removed\n")
 
         }else{good_chrom = rownames(bmatrix)}
-        if(filterdetectP){
-                rowmedians = apply(detect_p,1,median)
-                good_loci = rownames(detect_p)[rowmedians<=0.05]
-        }else{good_loci = rownames(bmatrix)}
+        if(sitefilterdetectP){
+           good_loci = rownames(detect_p)[rowSums(detect_p<=sitefilterdetectP)>=sitefilterperc*ncol(detect_p)]
+         }else{good_loci = rownames(bmatrix)}
         if(normalization){###quantile normalization
               require(preprocessCore)
               bmatrix = normalize.quantiles(as.matrix(bmatrix))
@@ -52,7 +50,7 @@ function(data=data,na.omit = TRUE,normalization=FALSE,transfm = FALSE,filtersamp
         if(locidiff){
                 con_mean = apply(bmatrix[,control],1,mean)
                 trt_mean = apply(bmatrix[,experiment],1,mean)
-                good_diff = rownames(bmatrix)[abs(1-trt_mean/con_mean)>=locidiffcut]
+                good_diff = rownames(bmatrix)[abs(1-trt_mean/con_mean)>=locidiff]
 
         }else{
                 good_diff = rownames(bmatrix)
