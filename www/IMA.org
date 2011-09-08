@@ -39,7 +39,7 @@ To load it, just type the following command in R after download:
 load("./fullannotInd.rda")
 * Pipeline
 
-The pipeline loads the data from Illumina platform and provides user-customized functions commonly required to perform differential methylation analysis for individual sites as well as annotated regions. The user can either run the pipeline with default setting or specify optional routes in the parameter file.
+The [[./pipeline.R][pipeline]] loads the data from Illumina platform and provides user-customized functions commonly required to perform differential methylation analysis for individual sites as well as annotated regions. The user can either run the pipeline with default setting or specify optional routes in the parameter file.
 
 To run the pipeline file, just simply type "R no save <pipeline.R" under Linux/Unix. Alternatively, paste the commandes in the pipeline.R into R.
 
