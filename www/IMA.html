@@ -8,7 +8,7 @@ lang="en" xml:lang="en">
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="generator" content="Org-mode"/>
 <meta name="generated" content="2011-08-18 Thu"/>
-<meta name="author" content="Dan Wang ; Song Liu  "/>
+<meta name="author" content="Dan Wang   "/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
 <style type="text/css">
@@ -91,7 +91,7 @@ lang="en" xml:lang="en">
 <h2 id="sec-1"><span class="section-number-2">1</span> Abstract </h2>
 <div class="outline-text-2" id="text-1">
 
-<p>The recently released Infinium HumanMethylation450 BeadChip provides an unprecedented opportunity to quantify the methylation level of over 450,000 CpG sites within human genome. IMA (Illumina Methylation Analyzer) is a package designed to automate the pipeline for analyzing site-level and region-level methylation changes in epigenetic studies utilizing the 450K DNA methylation microarray. The pipeline loads the data from Illumina platform and provides user-customized functions commonly required to perform differential methylation analysis for individual sites as well as annotated regions. We showed that region-level analysis might complement site-level analysis in differential methylation inference.
+<p>The Illumina Infinium HumanMethylation450 BeadChip is a newly designed high-density microarray for quantifying the methylation level of over 450,000 CpG sites within human genome. IMA (Illumina Methylation Analyzer) is a computational package designed to automate the pipeline for analyzing site-level and region-level methylation changes in epigenetic studies utilizing the 450K DNA methylation microarray. The pipeline loads the data from Illumina platform and provides user-customized functions commonly required to perform differential methylation analysis for individual sites as well as annotated regions.
 </p>
 </div>
 
@@ -101,18 +101,19 @@ lang="en" xml:lang="en">
 <h2 id="sec-2"><span class="section-number-2">2</span> Installation </h2>
 <div class="outline-text-2" id="text-2">
 
-<p>install.packages("IMA", repos="<a href="http://R-Forge.R-project.org">http://R-Forge.R-project.org</a>")
+<p>Option1: use following command in R:
 </p>
 <p>
-**Prerequisites: 
+install.packages("IMA", repos="<a href="http://R-Forge.R-project.org">http://R-Forge.R-project.org</a>")##Currently not available
 </p>
 <p>
-The IMA package requires the following packages to be installed: WriteXLS,GSA,limma,dplR,MASS,bioDist,preprocessCore.
-If your system does not have them installed, the easiest way to install them is to issue the following command at the R prompt:
+Option2: download the package <a href="./IMA_1.2.2.tar.gz">here</a> and install in R by:
 </p>
 <p>
-install.packages(c("WriteXLS","GSA","limma","dplR","MASS","bioDist","preproceCore"))
-</p></div>
+install.packages("IMA<sub>1</sub>.2.2.tar.gz",repos=NULL)
+</p>
+
+</div>
 
 </div>
 
@@ -120,7 +121,7 @@ install.packages(c("WriteXLS","GSA","limma","dplR","MASS","bioDist","preproceCor
 <h2 id="sec-3"><span class="section-number-2">3</span> Tutorial </h2>
 <div class="outline-text-2" id="text-3">
 
-<p>A vignentte that illustrate various aspects of IMA is available and it can be found <a href="./meth450.pdf">here</a>
+<p>A vignentte that illustrate various aspects of IMA is available <a href="./meth450.pdf">here</a>
 </p>
 <p>
 The user manual of IMA package could be found <a href="./IMA-manual.pdf">here</a>.
@@ -134,7 +135,7 @@ The user manual of IMA package could be found <a href="./IMA-manual.pdf">here</a
 
 
 <p>
-The 11 region level annotation for the 450k sites without any filtering could be download from here.
+The 11 region level annotation for the 450k sites without any filtering could be download from <a href="./fullannotInd.rda">here</a>.
 </p>
 <p>
 To load it, just type the following command in R after download:
@@ -151,8 +152,7 @@ load("./fullannotInd.rda")
 
 
 <p>
-It will automatically produce the unsuperwised cluster tree, test results in excel file and saved the result into Rdata for further explor.
-The <a href="./pipeline.R">pipeline</a> file can be used to run with default setting or specify options in it.
+The pipeline loads the data from Illumina platform and provides user-customized functions commonly required to perform differential methylation analysis for individual sites as well as annotated regions. The user can either run the pipeline with default setting or specify optional routes in the parameter file.
 </p>
 <p>
 To run the pipeline file, just simply type "R no save &lt;pipeline.R" under Linux/Unix. Alternatively, paste the commandes in the pipeline.R into R.
@@ -169,8 +169,8 @@ To run the pipeline file, just simply type "R no save &lt;pipeline.R" under Linu
 </p></div>
 </div>
 <div id="postamble">
-<p class="author"> Author: Dan Wang ; Song Liu  
-<a href="mailto:dan.wang@roswellpark.org ; song.liu@roswellpark.org">&lt;dan.wang@roswellpark.org ; song.liu@roswellpark.org&gt;</a>
+<p class="author"> Author: Dan Wang   
+<a href="mailto:dan.wang@roswellpark.org ">&lt;dan.wang@roswellpark.org &gt;</a>
 </p>
 <p class="date"> Date: 2011-08-18 Thu</p>
 <p class="creator">HTML generated by org-mode 6.34c in emacs 23</p>

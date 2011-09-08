@@ -56,8 +56,9 @@ betadiffcut = 0.14 ## cut off for beta value difference
 ######################################################################################################################
 
 .libPaths(libPaths) ##Specify your R library
+library(IMA)
 data = IMA.methy450R(file = MethyFileName,columnGrepPattern=list(beta=".AVG_Beta",detectp=".Detection.Pval"),groupfile = PhenoFileName)# load the data
-dataf = IMA.methy450PP(data,na.omit = TRUE,normalization=FALSE,transfm = FALSE,samplefilterdetectP = 1e-5,samplefilterperc = 0.75,sitefilterdetectP = 0.05,locidiff = FALSE, Xchrom = TRUE)## QC filtering
+dataf = IMA.methy450PP(data,na.omit = na.omit,normalization=normalization,transfm = transfm,samplefilterdetectP = samplefilterdetectP,samplefilterperc = 0.75,sitefilterdetectP = 0.05,locidiff = FALSE, Xchrom = TRUE)## QC filtering
 
 sitetest = sitetest(dataf,gcase=gcase,gcontrol=gcontrol,testmethod = testmethod,Padj=Padj,rawpcut = rawpcut,adjustpcut =adjustpcut,betadiffcut = betadiffcut) ###site level test with the "BH" adjustment
 write.table(sitetest,file=siteleveltest,row.names=TRUE) # saving the reults (note that writeXLS won't work on the data exceeds 65535 rows or 256 columns)
