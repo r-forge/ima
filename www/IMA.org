@@ -27,7 +27,7 @@ install.packages("IMA_1.2.2.tar.gz",repos=NULL)
 
 
 * Tutorial
-A vignentte that illustrate various aspects of IMA is available [[./meth450.pdf][here]]
+A vignentte that illustrate various aspects of IMA is available [[./meth450k.pdf][here]]
   
 The user manual of IMA package could be found [[./IMA-manual.pdf][here]].
 * Annotation file
@@ -44,4 +44,4 @@ The [[./pipeline.R][pipeline]] loads the data from Illumina platform and provide
 To run the pipeline file, just simply type "R no save <pipeline.R" under Linux/Unix. Alternatively, paste the commandes in the pipeline.R into R.
 
 * Project summary
-The project summary page you can find [[http://r-forge.r-project.org/projects/IMA/][here]].
+The project summary page you can find [[http://r-forge.r-project.org/projects/ima/][here]].
