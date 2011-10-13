@@ -23,7 +23,7 @@ install.packages("IMA",, repos="http://rforge.net")
 
 Option2: download the package [[./IMA_1.2.2.tar.gz][here]] and install in R by:
 
-install.packages("IMA_0.1.2.tar.gz",repos=NULL)
+install.packages("IMA\_0.1.2.tar.gz",repos=NULL)
 
 * Tutorial
 A vignentte that illustrate various aspects of IMA is available [[./meth450k.pdf][here]]
@@ -41,7 +41,12 @@ load("./fullannotInd.rda")
 The [[./pipeline.R][pipeline]] loads the data from Illumina platform and provides user-customized functions commonly required to perform differential methylation analysis for individual sites as well as annotated regions. The user can either run the pipeline with default setting or specify optional routes in the parameter file.
 
 To run the pipeline file, just simply type "R no save <pipeline.R" under Linux/Unix. Alternatively, paste the commandes in the pipeline.R into R.
+* Frequently Asked Questions:
+1.Can't load data successfully? R return below warning messages:
+"Error in index:ncol(data) : argument of length 0" or "Error in `[.data.frame`(betamatrix, , index) : undefined columns"
 
+Answer:
+Please check the sample names and make sure that they are not starting with number or containing "hyphen". R will add an X in front of the numbers as read the column namesb from .txt and change "hyphen" into "periods".If that is the case, please make corresponding changes in the phenotype.txt file.
 * Project 
 This project had been removed to [[Rforge.net][https://www.rforge.net/IMA/index.html]].
 

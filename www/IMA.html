@@ -82,7 +82,8 @@ lang="en" xml:lang="en">
 <li><a href="#sec-3">3 Tutorial </a></li>
 <li><a href="#sec-4">4 Annotation file </a></li>
 <li><a href="#sec-5">5 Pipeline </a></li>
-<li><a href="#sec-6">6 Project </a></li>
+<li><a href="#sec-6">6 Frequently Asked Questions: </a></li>
+<li><a href="#sec-7">7 Project </a></li>
 </ul>
 </div>
 </div>
@@ -107,7 +108,7 @@ lang="en" xml:lang="en">
 install.packages("IMA",, repos="<a href="http://rforge.net">http://rforge.net</a>")
 </p>
 <p>
-Option2: download the package <a href="./IMA_0.1.2.tar.gz">here</a> and install in R by:
+Option2: download the package <a href="./IMA_1.2.2.tar.gz">here</a> and install in R by:
 </p>
 <p>
 install.packages("IMA_0.1.2.tar.gz",repos=NULL)
@@ -155,14 +156,27 @@ The <a href="./pipeline.R">pipeline</a> loads the data from Illumina platform an
 </p>
 <p>
 To run the pipeline file, just simply type "R no save &lt;pipeline.R" under Linux/Unix. Alternatively, paste the commandes in the pipeline.R into R.
-</p>
-</div>
+</p></div>
 
 </div>
 
 <div id="outline-container-6" class="outline-2">
-<h2 id="sec-6"><span class="section-number-2">6</span> Project </h2>
+<h2 id="sec-6"><span class="section-number-2">6</span> Frequently Asked Questions: </h2>
 <div class="outline-text-2" id="text-6">
+
+<p>1.Can't load data successfully? R return below warning messages:
+"Error in index:ncol(data) : argument of length 0" or "Error in `[.data.frame`(betamatrix, , index) : undefined columns"
+</p>
+<p>
+Answer:
+Please check the sample names and make sure that they are not starting with number or containing "hyphen". R will add an X in front of the numbers as read the column namesb from .txt and change "hyphen" into "periods".If that is the case, please make corresponding changes in the phenotype.txt file.
+</p></div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Project </h2>
+<div class="outline-text-2" id="text-7">
 
 <p>This project had been removed to <a href="#Rforge.net">https://www.rforge.net/IMA/index.html</a>.
 </p>
