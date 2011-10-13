@@ -48,5 +48,5 @@ To run the pipeline file, just simply type "R no save <pipeline.R" under Linux/U
 Answer:
 Please check the sample names and make sure that they are not starting with number or containing "hyphen". R will add an X in front of the numbers as read the column namesb from .txt and change "hyphen" into "periods".If that is the case, please make corresponding changes in the phenotype.txt file.
 * Project 
-This project had been removed to [[Rforge.net][https://www.rforge.net/IMA/index.html]].
+This project had been removed to [[http://www.rforge.net/IMA/index.html][https://www.rforge.net/IMA/index.html]].
 
