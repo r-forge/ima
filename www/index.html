@@ -4,10 +4,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 lang="en" xml:lang="en">
 <head>
-<title>IMA: An R package for high-throughput analysis of Illumina’s 450K Infinium methylation data(This package had been removed to Rforge.net)</title>
+<title>IMA: An R package for high-throughput analysis of Illumina’s 450K Infinium methylation data.</title>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2011-08-18 Thu"/>
+<meta name="generated" content="2011-11-14 12:50:53 EST"/>
 <meta name="author" content="Dan Wang   "/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -70,8 +70,10 @@ lang="en" xml:lang="en">
 <body>
 <div id="content">
 
-<h1 class="title">IMA: An R package for high-throughput analysis of Illumina’s 450K Infinium methylation data(This package had been removed to Rforge.net)</h1>
+<h1 class="title">IMA: An R package for high-throughput analysis of Illumina’s 450K Infinium methylation data.</h1>
 
+<p><font color="red">****The package is maintained on <a href="#rforge.net">rforge.net</a>: <a href="https://www.rforge.net/IMA/">https://www.rforge.net/IMA/</a></font><br>
+</p>
 
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
@@ -83,7 +85,6 @@ lang="en" xml:lang="en">
 <li><a href="#sec-4">4 Annotation file </a></li>
 <li><a href="#sec-5">5 Pipeline </a></li>
 <li><a href="#sec-6">6 Frequently Asked Questions: </a></li>
-<li><a href="#sec-7">7 Project </a></li>
 </ul>
 </div>
 </div>
@@ -92,7 +93,10 @@ lang="en" xml:lang="en">
 <h2 id="sec-1"><span class="section-number-2">1</span> Abstract </h2>
 <div class="outline-text-2" id="text-1">
 
-<p>The Illumina Infinium HumanMethylation450 BeadChip is a newly designed high-density microarray for quantifying the methylation level of over 450,000 CpG sites within human genome. IMA (Illumina Methylation Analyzer) is a computational package designed to automate the pipeline for analyzing site-level and region-level methylation changes in epigenetic studies utilizing the 450K DNA methylation microarray. The pipeline loads the data from Illumina platform and provides user-customized functions commonly required to perform differential methylation analysis for individual sites as well as annotated regions.
+<p>The Illumina Infinium HumanMethylation450 BeadChip is a newly designed high-density microarray for quantifying the methylation level of over 450,000 CpG sites within human genome. IMA (Illumina Methylation Analyzer) is a computational package designed to automate the pipeline for analyzing site-level and region-level methylation changes in epigenetic studies utilizing the 450K DNA methylation microarray. The pipeline loads the data from Illumina platform and provides user-customized functions commonly required to perform exploratory methylation analysis and summarization for individual sites as well as annotated regions. 
+</p>
+<p>
+Note that instead of providing recommendations about which specific analysis method should be used, the main purpose of developing IMA package is to provide a range of commonly used Infinium methylation microarray analysis options for users to choose for their exploratory analysis and summarization in an automatic way. Therefore, it is the best interest for the users to consult experienced bioinformatician/statistician about which specific analysis option/route should be chosen for their 450k microarray data.
 </p>
 </div>
 
@@ -102,17 +106,37 @@ lang="en" xml:lang="en">
 <h2 id="sec-2"><span class="section-number-2">2</span> Installation </h2>
 <div class="outline-text-2" id="text-2">
 
-<p>Option1: use following command in R:
+<p><font color="red">***Prerequisites: </font><br>
 </p>
 <p>
-install.packages("IMA",, repos="<a href="http://rforge.net">http://rforge.net</a>")
+1.The IMA package requires R version &gt;= 2.13 for Windows system, and R version &gt;=2.11.0 for Linux like system.
 </p>
 <p>
-Option2: download the package <a href="./IMA_1.2.2.tar.gz">here</a> and install in R by:
+2.The IMA package requires the following packages to be installed: WriteXLS, limma, dplR, MASS, bioDist.
+If your system does not have them installed, the easiest way to install them is to issue the following commands at the R prompt:
 </p>
 <p>
-install.packages("IMA_0.1.2.tar.gz",repos=NULL)
+&gt;source("<a href="http://bioconductor.org/biocLite.R">http://bioconductor.org/biocLite.R</a>");
+&gt;biocLite(c("limma", "bioDist");
+&gt;install.packages(c("WriteXLS", "dplR", "MASS"), repos="<a href="http://cran.r-project.org">http://cran.r-project.org</a>");
 </p>
+<p>
+**Installation options:
+There are two ways to install IMA package:
+</p>
+<p>
+Option 1): Issue the following command at the R prompt:
+</p>
+<p>
+&gt;install.packages("IMA",repos=c("<a href="http://rforge.net">http://rforge.net</a>")
+</p>
+<p>
+Option 2): Download the package <a href="./IMA_1.2.2.tar.gz">here</a> and issue the following command at the R prompt:
+</p>
+<p>
+&gt;install.packages("./IMA_0.1.2.tar.gz",repos=NULL)
+</p>
+
 </div>
 
 </div>
@@ -121,11 +145,12 @@ install.packages("IMA_0.1.2.tar.gz",repos=NULL)
 <h2 id="sec-3"><span class="section-number-2">3</span> Tutorial </h2>
 <div class="outline-text-2" id="text-3">
 
-<p>A vignentte that illustrate various aspects of IMA is available <a href="./meth450k.pdf">here</a>
+<p>A vignette introducing the examples of using IMA is available <a href="./meth450k.pdf">here</a>
 </p>
 <p>
 The user manual of IMA package could be found <a href="./IMA-manual.pdf">here</a>.
-</p></div>
+</p>
+</div>
 
 </div>
 
@@ -135,14 +160,15 @@ The user manual of IMA package could be found <a href="./IMA-manual.pdf">here</a
 
 
 <p>
-The 11 region level annotation for the 450k sites without any filtering could be download from <a href="./fullannotInd.rda">here</a>.
+The region-level annotation library for the 450k microarray could be downloaded from <a href="./fullannotInd.rda">here</a>.
 </p>
 <p>
-To load it, just type the following command in R after download:
+Users can load the regional-level annotation library by issuing the following command at the R prompt:
 </p>
 <p>
-load("./fullannotInd.rda")
-</p></div>
+&gt;load("./fullannotInd.rda")
+</p>
+</div>
 
 </div>
 
@@ -152,11 +178,12 @@ load("./fullannotInd.rda")
 
 
 <p>
-The <a href="./pipeline.R">pipeline</a> loads the data from Illumina platform and provides user-customized functions commonly required to perform differential methylation analysis for individual sites as well as annotated regions. The user can either run the pipeline with default setting or specify optional routes in the parameter file.
+The <a href="./pipeline.R">pipeline</a> loads the data from Illumina platform and provides user-customized functions commonly required to perform exploratory differential methylation analysis and summarization for individual sites as well as annotated regions. The user can either run the pipeline with default setting or specify optional routes in the parameter file. Note that it is the best interest for the users to consult experienced bioinformatician/statistician about which specific analysis option should be chosen for their 450k microarray data.
 </p>
 <p>
-To run the pipeline file, just simply type "R no save &lt;pipeline.R" under Linux/Unix. Alternatively, paste the commandes in the pipeline.R into R.
-</p></div>
+To run the pipeline, users can simply type "R no save &lt; pipeline.R" at the Linux/Unix prompt. Alternatively, users can copy the commands in the pipeline.R and paste them into the R prompt.
+</p>
+</div>
 
 </div>
 
@@ -164,21 +191,45 @@ To run the pipeline file, just simply type "R no save &lt;pipeline.R" under Linu
 <h2 id="sec-6"><span class="section-number-2">6</span> Frequently Asked Questions: </h2>
 <div class="outline-text-2" id="text-6">
 
-<p>1.Can't load data successfully? R return below warning messages:
+
+<p>
+1.Can't load data successfully? R return below warning messages:
+</p>
+<p>
 "Error in index:ncol(data) : argument of length 0" or "Error in `[.data.frame`(betamatrix, , index) : undefined columns"
 </p>
 <p>
 Answer:
-Please check the sample names and make sure that they are not starting with number or containing "hyphen","space". R will add an "X" in front of the numbers as read names from .txt and replace "hyphen/space" with ".". If that is the case, please make corresponding changes in the phenotype.txt file.
-</p></div>
-
-</div>
-
-<div id="outline-container-7" class="outline-2">
-<h2 id="sec-7"><span class="section-number-2">7</span> Project </h2>
-<div class="outline-text-2" id="text-7">
-
-<p>This project had been removed to <a href="http://www.rforge.net/IMA/index.html">https://www.rforge.net/IMA/index.html</a>.
+</p>
+<p>
+Please check the sample names and make sure that they are not starting with number or containing "hyphen" and/or "space". For sample names starting with number, R will automatically add an "X" in front of the numbers when it reads sample names from the data file generated by Illumina platform. For sample names containing "hyphen" and/or "space", R will automatically replace "hyphen/space" with "." . If that is the case, please make the corresponding changes in the phenotype.txt file.
+</p>
+<p>
+2.There are a total of ~65k probes on the 450k platform which contain SNPs at/near the target CpG site and are unlikely to measure DNA methylation at all. Should this issue be considered?
+</p>
+<p>
+Answer:
+</p>
+<p>
+Users can choose to filter out loci whose methylation level are measured by probes containing SNP(s) at/near the targeted CpG site. We have included an optional route for users to filter out these SNP-containing probes in Version 2.1.0 or above. The list of SNP-containing probes (based on dbSNP v132) was provided by Ali Torkamani at Scripps Institute.
+</p>
+<p>
+3.I need to make a paired analysis for the samples and usually I would adjust for this using block or some other factor in LIMMA. However, I do not really see where I can add that type of info now. So if possible, I would really appreciate some info on this, otherwise, can the object be run outside the package as an input to LIMMA?
+</p>
+<p>
+Answer:
+</p>
+<p>
+We have included optional routes for paired analysis in Version 2.1.0 or above.
+</p>
+<p>
+4.I found a list of Island regions differentially expressed using IMA testfunc. However, the results only contain the chromosome regions instead of ProbeID within the differentially expressed regions. Would it be possible to have some options to get the Probe Ids and their corresponding annotations within these regions?
+</p>
+<p>
+Answer:
+</p>
+<p>
+An example for how to extract probeID and corresponding annotation information within the differentially expressed region(s) has been added to the Vignette.
 </p>
 </div>
 </div>
@@ -186,7 +237,7 @@ Please check the sample names and make sure that they are not starting with numb
 <p class="author"> Author: Dan Wang   
 <a href="mailto:dan.wang@roswellpark.org ">&lt;dan.wang@roswellpark.org &gt;</a>
 </p>
-<p class="date"> Date: 2011-08-18 Thu</p>
+<p class="date"> Date: 2011-11-14 12:50:53 EST</p>
 <p class="creator">HTML generated by org-mode 6.34c in emacs 23</p>
 </div>
 </div>
