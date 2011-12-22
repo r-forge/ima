@@ -16,8 +16,8 @@ PhenoFileName = "../data/SamplePhenotype.txt"                 ### Specify the ph
 
 ###########output file######################################################################################
 siteleveltest = "./sitelevle.test.xls" ### Specify the path and name for the site-level testing result
-list11excel = "../list11excel.xls"     ### Specify the path and name for region-level analysis results
-list11Rdata = "../list11.Rdata"        ### Specify the path of Rdata file which stores the region-level analysis results
+list11excel = "./list11excel.xls"     ### Specify the path and name for region-level analysis results
+list11Rdata = "./list11.Rdata"        ### Specify the path of Rdata file which stores the region-level analysis results
 ############################################################################################################
 
 #################Preprocessing:IMA.methy450PP ##############################################################
