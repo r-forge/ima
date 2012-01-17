@@ -32,7 +32,7 @@ transfm = FALSE              ### If FALSE, no transform is performed; if "arcsin
 locidiff = FALSE             ### If FALSE, don't filter sites by the difference of group beta value. Otherwise, remove the sites with beta value difference smaller than the specified value
 locidiffgroup = c("g1","g2") ### Specify which two groups are considered to check the loci difference (if "locidiff" is not true)
 snpfilter = FALSE            ### If FALSE, keep the loci whose methylation level are measured by probes containing SNP(s) at/near the targeted CpG site; otherwise, filter out the list of SNP containing loci by specifying the snp file name and location
-                             ### A list of SNP-containing probes (based on dbSNP v132) could be accessed by the command: snpfilter = system.file("snpsites.txt",package ="IMA")
+                             ### A list of SNP-containing probes (based on dbSNP v132) could be accessed by the command: snpfilter = system.file("extdata/snpsites.txt",package ="IMA")
 ##############################################################################################################
 
 ############sitetest/regionwrapper############################################################################
