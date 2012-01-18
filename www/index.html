@@ -185,7 +185,7 @@ To run the pipeline file, users can simply type "R no save &lt; pipeline.R" at t
 </div>
 
 <div id="outline-container-6" class="outline-2">
-<h2 id="sec-6"><span class="section-number-2">6</span> Frequently Asked Questions: </h2>
+<h2 id="sec-6"><span class="section-number-2">6</span> Frequently Asked Questions </h2>
 <div class="outline-text-2" id="text-6">
 
 <p>1.There are a total of ~65k probes on the 450k platform which contain SNPs at/near the target CpG site and are unlikely to measure DNA methylation at all. Should this issue be considered?
@@ -197,7 +197,7 @@ Answer:
 Users can choose to filter out loci whose methylation level are measured by probes containing SNP(s) at/near the targeted CpG site. We have included an optional route for users to filter out these SNP-containing probes in Version 2.1.0 or above. The list of SNP-containing probes (based on dbSNP v132) was provided by Ali Torkamani at Scripps Institute and could be downloaded from <a href="./snpsites.txt">here</a> or by issuing the following command in R :
 </p>
 <p>
-&gt;snpfilter = system.file("snpsites.txt",package ="IMA").
+&gt;snpfilter = system.file("extdata/snpsites.txt",package ="IMA").
 </p>
 <p>
 2.I need to make a paired analysis for the samples and usually I would adjust for this using block or some other factor in LIMMA. However, I do not really see where I can add that type of info now. So if possible, I would really appreciate some info on this, otherwise, can the object be run outside the package as an input to LIMMA?
