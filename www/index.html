@@ -84,7 +84,9 @@ lang="en" xml:lang="en">
 <li><a href="#sec-3">3 Tutorial </a></li>
 <li><a href="#sec-4">4 Annotation file </a></li>
 <li><a href="#sec-5">5 Pipeline </a></li>
-<li><a href="#sec-6">6 Frequently Asked Questions: </a></li>
+<li><a href="#sec-6">6 Citations </a></li>
+<li><a href="#sec-7">7 Frequently Asked Questions: </a></li>
+
 </ul>
 </div>
 </div>
@@ -109,10 +111,10 @@ Note that instead of providing recommendations about which specific analysis met
 <p><font color="red">***Prerequisites: </font><br>
 </p>
 <p>
-1.The IMA package requires R version &gt;= 2.13 for Windows system, and R version &gt;=2.11.0 for Linux like system.
+1.The IMA package requires R version &gt;= 2.13 for Windows system, and R version &gt;=2.11.0 for Linux like system. 
 </p>
 <p>
-2.The IMA package requires the following packages to be installed: WriteXLS,limma,MASS,bioDist.
+2.The IMA package requires the following packages to be installed: WriteXLS,limma,MASS,bioDist,dplR.
 If your system does not have them installed, the easiest way to install them is to issue the following command at the R prompt:
 </p>
 <p>
@@ -120,6 +122,10 @@ source("<a href="http://bioconductor.org/biocLite.R">http://bioconductor.org/bio
 biocLite(c("limma","bioDist"));
 install.packages(c("WriteXLS","MASS"),repos="<a href="http://cran.r-project.org">http://cran.r-project.org</a>");
 </p>
+<p>
+3.The WriteXLS package requires the perl to be installed.
+</p>
+
 <p>
 **Install options:There are two ways to install IMA package: 
 </p>
@@ -130,10 +136,10 @@ Option 1): Issue the following command at the R prompt:
 install.packages("IMA",repos=c("<a href="http://rforge.net">http://rforge.net</a>"))
 </p>
 <p>
-Option 2): download the package <a href="./IMA_3.1.1.tar.gz">here</a> and issue the following command at the R prompt:
+Option 2): download the package <a href="./IMA_3.1.2.tar.gz">here</a> and issue the following command at the R prompt:
 </p>
 <p>
-install.packages("IMA_3.1.1.tar.gz",repos=NULL,type = "source")
+install.packages("IMA_3.1.2.tar.gz",repos=NULL,type = "source")
 </p>
 
 </div>
@@ -156,16 +162,35 @@ The user manual of IMA package could be found <a href="./IMA-manual.pdf">here</a
 <h2 id="sec-4"><span class="section-number-2">4</span> Annotation file </h2>
 <div class="outline-text-2" id="text-4">
 
+<p>
+The region-level annotation library for the 450k microarray could be produced by issue below code after read in your raw methylation data into R. 
+</p>
+<p>
+&gt;dataf2 = IMA.methy450PP(data,peakcorrection = FALSE,na.omit = FALSE,normalization=FALSE,transfm = FALSE,samplefilterdetectP =FALSE,locidiff = FALSE, XYchrom = FALSE,snpfilter=FALSE )
+</p>
+<p>
+&gt;fullannot = dataf2@annot
+</p>
+<p>
+&gt;temp = c("TSS1500Ind","TSS200Ind","UTR5Ind", "EXON1Ind","GENEBODYInd","UTR3Ind","ISLANDInd","NSHOREInd","SSHOREInd","NSHELFInd", "SSHELFInd")
+</p>
+<p>
+&gt;for( i in 1:11){eval(parse(text=paste(temp[i],"=dataf2@",temp[i],sep="")))}
+</p>
+<p>
+&gt;eval(parse(text = paste("save(fullannot", paste(temp,collapse = ","), "file = 'fullannotInd.rda')", sep = "," )))
+</p>
+Instead, the region-level annotation library for the 450k microarray could be downloaded from <a href="./fullannotInd.rda">here</a>.
+</p>
+<p>
+Then users can load the regional-level annotation library by issuing the following command at the R prompt:
+</p>
+<p>
+&gt;load("./fullannotInd.rda")
+</p>
+<p>
+It is recommended to produce the annotation library by using user's own data, as it is very likely that different users may have slightly different annotation produced by GenomeStudio .
 
-<p>
-The region-level annotation library for the 450k microarray could be downloaded from <a href="./fullannotInd.rda">here</a>.
-</p>
-<p>
-Users can load the regional-level annotation library by issuing the following command at the R prompt:
-</p>
-<p>
-&gt;load("./fullannotInd.rda") 
-</p>
 </div>
 
 </div>
@@ -185,8 +210,17 @@ To run the pipeline file, users can simply type "R no save &lt; pipeline.R" at t
 </div>
 
 <div id="outline-container-6" class="outline-2">
-<h2 id="sec-6"><span class="section-number-2">6</span> Frequently Asked Questions </h2>
+<h2 id="sec-6"><span class="section-number-2">6</span> Citations </h2>
 <div class="outline-text-2" id="text-6">
+
+<p>Wang D, Yan L, Hu Q, Sucheston LE, Higgins MJ, Ambrosone CB, Johnson CS, Smiraglia DJ, Liu S. IMA: an R package for high-throughput analysis of Illumina's 450K Infinium methylation data. Bioinformatics. 2012 Mar 1;28(5):729-30
+</p></div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Frequently Asked Questions </h2>
+<div class="outline-text-2" id="text-7">
 
 <p>1.There are a total of ~65k probes on the 450k platform which contain SNPs at/near the target CpG site and are unlikely to measure DNA methylation at all. Should this issue be considered?
 </p>
@@ -218,18 +252,32 @@ Answer:
 An example for how to extract probeID and corresponding annotation information within the differentially expressed region(s) has been added to the Vignette.
 <p>4. Have you consider the peark correction in the data preprocessing step?
 </p>
-<p>
+ <p>
 Answer:
 </p>
 <p>
-The peak correction option had been added to the preprocessing step. For the detail of the peak correction method, please reference "Evaluation of the Infinium Methylation 450k technology" by Sarah Dedeurwaerder et al.
+The peak correction option had been added to the preprocessing step. For the detail of the peak correction method, please reference "Evaluation of the Infinium Methylation 450k technology" by Sarah Dedeurwaerder et al. We fixed the bug after version 3.1.2 in the peak correction option, please use the latest version of IMA(>3.1.2) if you choose the peak correction option = TRUE.
+<p>5. I have some data generated by the Methyl27k arrays. Can I use IMA for as well?
+</p>
+ <p>
+Answer:
+</p>
+<p>
+To make IMA configurable for 27k array, we first mapped the loci's annotation for 27k array to that of 450k array. There are a total of 27578 loci for 27k array, and 1600 of them couldn't be mapped to 450k array. For those unmapped loci, we keep their original annotation from the 27k array. For those mapped loci, we use the annotation from 450k array.
+The annotation for 27k array could be downloaded from <a href="./annot27k_mapped.Rdata">here</a>. The usage of IMA to 27k array is similar to that for 450k array, except that the following two commands needs to be issued between the reading step(IMA.methy450R) and the preprocessing step(IMA.methy450PP):
+</p>
+ <p>
+load("./annot27k_mapped.Rdata")
+</p>
+ <p>
+data@annot = as.matrix(annotout)
 </p></div>
 </div>
 <div id="postamble">
 <p class="author"> Author: Dan Wang   
 <a href="mailto:dan.wang@roswellpark.org ">&lt;dan.wang@roswellpark.org &gt;</a>
 </p>
-<p class="date"> Date: 2011-12-07 15:03:26 EST</p>
+<p class="date"> Date: 2012-5-20 15:03:26 EST</p>
 <p class="creator">HTML generated by org-mode 6.34c in emacs 23</p>
 </div>
 </div>

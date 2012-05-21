@@ -26,9 +26,10 @@ samplefilterperc = 0.75      ### The percent of loci with detection Pvalue less 
 sitefilterdetectP = 0.05     ### The cutoff for site-level detection Pvalue
 sitefilterperc = 0.5         ### The percent of samples with detection Pvalue less than "sitefilterdetectP" for each site
 na.omit = TRUE               ### Remove the sites containing missing beta value
-Xchrom = TRUE                ### Remove the sites on chromosome X
+XYchrom = FALSE                ### Remove the sites on chromosome X
+peakcorrection = FALSE       ### If TRUE, peak correction is performed
 normalization = FALSE        ### If TRUE, quantile normalization performed
-transfm = FALSE              ### If FALSE, no transform is performed; if "arcsinsqr", arcsin square root transformation is performed; if "logit", logit transformation is performed
+transfm = FALSE              ### If FALSE, no transform is performed; if "arcsinsqr", arcsin square root transformation is performed; if "logit", logit transformation is performed;
 locidiff = FALSE             ### If FALSE, don't filter sites by the difference of group beta value. Otherwise, remove the sites with beta value difference smaller than the specified value
 locidiffgroup = c("g1","g2") ### Specify which two groups are considered to check the loci difference (if "locidiff" is not true)
 snpfilter = FALSE            ### If FALSE, keep the loci whose methylation level are measured by probes containing SNP(s) at/near the targeted CpG site; otherwise, filter out the list of SNP containing loci by specifying the snp file name and location
@@ -62,7 +63,7 @@ betadiffcut = NULL         ### cut off for beta value difference
 .libPaths(libPaths) ## Specify your R library
 library(IMA)        ## load the IMA package
 data =IMA.methy450R(fileName = MethyFileName,columnGrepPattern=list(beta=".AVG_Beta",detectp=".Detection.Pval"),groupfile = PhenoFileName) ## load the data
-dataf = IMA.methy450PP(data,na.omit = na.omit,normalization=normalization,transfm = transfm,samplefilterdetectP = samplefilterdetectP,samplefilterperc = samplefilterperc,sitefilterdetectP = sitefilterdetectP,locidiff = locidiff, locidiffgroup = locidiffgroup,Xchrom = Xchrom,snpfilter = snpfilter) ## QC filtering
+dataf = IMA.methy450PP(data,na.omit = na.omit,normalization=normalization,peakcorrection = peakcorrection,transfm = transfm,samplefilterdetectP = samplefilterdetectP,samplefilterperc = samplefilterperc,sitefilterdetectP = sitefilterdetectP,locidiff = locidiff, locidiffgroup = locidiffgroup,XYchrom = XYchrom,snpfilter = snpfilter) ## QC filtering
 
 sitetest = sitetest(dataf,gcase=gcase,gcontrol=gcontrol,concov=concov,testmethod = testmethod,Padj=Padj,rawpcut = rawpcut,adjustpcut =adjustpcut,betadiffcut = betadiffcut,paired = paired) ## site-level testing with the "BH" adjustment
 write.table(sitetest,file=siteleveltest,row.names=TRUE) ## saving the reults (note that writeXLS won't work on the data exceeds 65535 rows or 256 columns)
